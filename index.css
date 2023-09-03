@@ -1,0 +1,42 @@
+.heading {
+    display: flex;
+    justify-content: space-between;
+    border: 2px solid black;
+}
+
+.heading-links > ul {
+    display: flex;
+    list-style-type: none;
+}
+
+.heading-links > ul > li {
+    padding: 10px;
+    margin: 10px;
+}
+
+.introduction {
+    display: flex;
+    margin: 10px 0px;
+}
+
+.introduction-image {
+    height: 300px;
+    width: 600px;
+}
+
+.dishes-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+.dish-card {
+    height: 300px;
+    width: 275px;
+    padding: 5px;
+    margin: 5px;
+    border: 1px solid black;
+}
+
+.dish-card-image {
+    height: 200px;
+    width: 100%;
+}
