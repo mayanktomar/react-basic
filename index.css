@@ -29,7 +29,7 @@
     flex-wrap: wrap;
 }
 .dish-card {
-    height: 300px;
+    height: 350px;
     width: 275px;
     padding: 5px;
     margin: 5px;
@@ -39,4 +39,8 @@
 .dish-card-image {
     height: 200px;
     width: 100%;
+}
+
+.filter-btn {
+    cursor: pointer;
 }
