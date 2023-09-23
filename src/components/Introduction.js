@@ -1,4 +1,5 @@
 import { INTRO_IMAGE, INTRO_TEXT } from "../Utility/constants";
+import { useState } from "react";
 
 let Introduction = () => {
     return (

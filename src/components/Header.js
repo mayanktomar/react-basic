@@ -1,4 +1,8 @@
+import { useState } from "react";
+
 let Header = () => {
+
+    const [buttonText,setButtonText] = useState("Login");
     return (
         <div className="heading">
             <div className="heading-logo">
@@ -11,6 +15,10 @@ let Header = () => {
                     <li>Dishes</li>
                     <li>Founders</li>
                     <li>Contact Us</li>
+                    <li><button onClick={()=>{
+                        buttonText=="Login" ? setButtonText("Logout") : setButtonText("Login");
+                        console.log("Button text value...",buttonText);
+                    }}>{buttonText}</button></li>
                 </ul>
             </div>
         </div>

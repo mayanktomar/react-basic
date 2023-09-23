@@ -1,4 +1,4 @@
-let dishesData = [
+let dishesDataInArray = [
     {
         dishName: 'Dish1',
         desc: 'This a dish1',
@@ -49,4 +49,4 @@ let dishesData = [
     },
 ]
 
-export default dishesData;
+export default dishesDataInArray;
