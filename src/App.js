@@ -10,7 +10,6 @@ let MainComponent= () => {
         <div>
             <Header/>
             <Introduction/>
-            <Users/>
             <Dishes/>
         </div>
     )
