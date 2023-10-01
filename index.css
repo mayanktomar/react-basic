@@ -44,3 +44,14 @@
 .filter-btn {
     cursor: pointer;
 }
+
+.user-detail-page {
+    margin: 25px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.user-detail-img {
+    height: 300px;
+    width: 300px;
+}

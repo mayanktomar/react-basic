@@ -1,9 +1,7 @@
 import { useEffect, useState } from "react";
-
-
+import { Link } from "react-router-dom";
 
 let Users = () => {
-
     const [userData,setUserData] = useState([]);
     const [isLoading,setIsLoading] = useState(true);
     //If dependency array is not given, useEffect will work every time the component is rendered (re-render case also)
@@ -22,7 +20,7 @@ let Users = () => {
         setTimeout(()=>{
             setUserData(jsonResponse.data);
             setIsLoading(false);
-        },5000)
+        },2000)
         console.log(userData);
     }
     return isLoading ? 
@@ -32,16 +30,18 @@ let Users = () => {
         : 
         (
         <div>
-            <h2 style={{textAlign:'center'}}>Users</h2>
+            <h2 style={{textAlign:'center'}}>Founders</h2>
             <div className="dishes-container">
             {
                 userData.map((user)=>{
                     return (
                         <div className="dish-card">
-                            <img className="dish-card-image" src={user.avatar}/>
-                            <p>{user.email}</p>
-                            <p>{user.first_name}</p>
-                            <p>{user.last_name}</p>
+                            <Link to={"/founders/"+user.id}>
+                                <img className="dish-card-image" src={user.avatar}/>
+                                <p>{user.email}</p>
+                                <p>{user.first_name}</p>
+                                <p>{user.last_name}</p>
+                            </Link>  
                         </div>
                     )
                 })
