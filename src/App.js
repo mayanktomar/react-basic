@@ -10,6 +10,9 @@ import ErrorPage from "./components/ErrorPage";
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 import ContactUs from "./components/ContactUs";
 import UserDetailComponent from "./components/UserDetailComponent";
+import { Provider } from "react-redux";
+import store from "./store";
+import Feedbacks from "./components/Feedbacks";
 
 let HomeComponent = () => {
     return (
@@ -23,8 +26,10 @@ let HomeComponent = () => {
 let MainComponent= () => {
     return (
         <div>
-            <Header/>
-            <Outlet/>
+            <Provider store={store}>
+                <Header/>
+                <Outlet/>
+            </Provider>
         </div>
     )
 }
@@ -57,6 +62,10 @@ const mainRouter = createBrowserRouter([
             {
                 path: "/contactus",
                 element: <ContactUs/>
+            },
+            {
+                path: "/feedbacks",
+                element: <Feedbacks/>
             }
         ],
         errorElement: <ErrorPage/>
