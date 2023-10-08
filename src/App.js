@@ -1,4 +1,4 @@
-import React from "react";
+import React, { createContext, useState } from "react";
 import ReactDOM from "react-dom/client";
 import Header from "./components/Header";
 import Introduction from "./components/Introduction";
@@ -13,6 +13,8 @@ import UserDetailComponent from "./components/UserDetailComponent";
 import { Provider } from "react-redux";
 import store from "./store";
 import Feedbacks from "./components/Feedbacks";
+import { LoginContext } from "./context/context";
+
 
 let HomeComponent = () => {
     return (
@@ -24,11 +26,15 @@ let HomeComponent = () => {
     )
 }
 let MainComponent= () => {
+    const [isLoggedIn,setIsLoggedIn] = useState(false);
+    const value = {isLoggedIn,setIsLoggedIn};
     return (
         <div>
             <Provider store={store}>
-                <Header/>
-                <Outlet/>
+                <LoginContext.Provider value={value}>
+                    <Header/>
+                    <Outlet/>
+                </LoginContext.Provider>
             </Provider>
         </div>
     )

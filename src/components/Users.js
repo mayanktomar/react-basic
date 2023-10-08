@@ -1,16 +1,26 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { addUser } from "../redux/usersSlice";
+import { useDispatch } from "react-redux";
 
 let Users = () => {
-    const [userData,setUserData] = useState([]);
+    const userData = useSelector((state)=>state.users);
+    // const [userData,setUserData] = useState([]);
     const [isLoading,setIsLoading] = useState(true);
     //If dependency array is not given, useEffect will work every time the component is rendered (re-render case also)
     //If dependency array is empty, useEffect will work only for the first time when the component is rendered (when re-rendered, it wont work)
     //If there are few states given in dependency array, useEffect will work every time one of those states changes.
+    
+    const dispatch = useDispatch();
     useEffect(()=>{
         console.log("Inside Users useEffect")
-        callApi();
-    })
+        if (userData.length==0) {
+            callApi();
+        } else {
+            setIsLoading(false);
+        }
+    },[])
     let callApi = async () => {
         //fetch is used to make api calls.
         let res = await fetch('https://reqres.in/api/users?page=2');
@@ -18,7 +28,7 @@ let Users = () => {
         //console.log(await res.json());
         //Adding custom delay
         setTimeout(()=>{
-            setUserData(jsonResponse.data);
+            dispatch(addUser(jsonResponse.data));
             setIsLoading(false);
         },2000)
         console.log(userData);
